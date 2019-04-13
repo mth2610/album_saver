@@ -1,0 +1,28 @@
+PODS:
+  - album_saver (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - image_picker (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - album_saver (from `.symlinks/plugins/album_saver/ios`)
+  - Flutter (from `.symlinks/flutter/ios`)
+  - image_picker (from `.symlinks/plugins/image_picker/ios`)
+
+EXTERNAL SOURCES:
+  album_saver:
+    :path: ".symlinks/plugins/album_saver/ios"
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  image_picker:
+    :path: ".symlinks/plugins/image_picker/ios"
+
+SPEC CHECKSUMS:
+  album_saver: 9422ea68965ec3f41cbebe93e8bec85dc949dd33
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  image_picker: ee00aab0487cedc80a304085219503cc6d0f2e22
+
+PODFILE CHECKSUM: ebd43b443038e611b86ede96e613bd6033c49497
+
+COCOAPODS: 1.5.3
