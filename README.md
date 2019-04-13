@@ -37,7 +37,7 @@ AlbumSaver.saveToAlbum(filePath: image.path, albumName: "YourAlbumName");
 
 // Create album
 // In Android, it will create a folder in DCIM folder
-AlbumSaver.createAlbum(albumName: "MyTestAlbum");
+AlbumSaver.createAlbum(albumName: "YourAlbumName");
 
 // Get DCIM folder path (just work on Android)
 AlbumSaver.getDcimPath();
