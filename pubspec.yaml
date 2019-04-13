@@ -1,6 +1,6 @@
 name: album_saver
-description: help create and save images to album
-version: 0.0.1
+description: A Flutter plugin for iOS and Android for saving image to album. It also can use for getting DCIM path (Android only)
+version: 0.0.2
 author: thang mai <mth2610@gmail.com>
 homepage: https://mth2610.blogspot.com/
 

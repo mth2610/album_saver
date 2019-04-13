@@ -10,6 +10,24 @@ First, add `album_saver` as a [dependency in your pubspec.yaml file](https://flu
 
 ### iOS
 
+Edit your Podfile as follows:
+
+``` pod
+target 'Runner' do
+  use_frameworks! # <--- add this
+  ...
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      config.build_settings['SWIFT_VERSION'] = '4.2' # <--- add this
+    end
+  end
+end
+```
+
 If you use image_picker plugin, add the following keys to your _Info.plist_ file, located in `<project root>/ios/Runner/Info.plist`:
 
 * `NSPhotoLibraryUsageDescription` - describe why your app needs permission for the photo library. This is called _Privacy - Photo Library Usage Description_ in the visual editor.
