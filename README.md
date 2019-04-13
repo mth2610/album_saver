@@ -1,16 +1,16 @@
 # Album saver plugin for Flutter
 
-[![pub package](https://img.shields.io/pub/v/image_picker.svg)](https://pub.dartlang.org/packages/image_picker)
-
 A Flutter plugin for iOS and Android for saving image to album
 
 ## Installation
 
 First, add `album_saver` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
+> **NOTE:** There's a known issue with integrating plugins that use Swift into a Flutter project created with the Objective-C template. See issue [Flutter#16049](https://github.com/flutter/flutter/issues/16049) for help on integration.
+
 ### iOS
 
-If you user image_picker plugin, add the following keys to your _Info.plist_ file, located in `<project root>/ios/Runner/Info.plist`:
+If you use image_picker plugin, add the following keys to your _Info.plist_ file, located in `<project root>/ios/Runner/Info.plist`:
 
 * `NSPhotoLibraryUsageDescription` - describe why your app needs permission for the photo library. This is called _Privacy - Photo Library Usage Description_ in the visual editor.
 * `NSCameraUsageDescription` - describe why your app needs access to the camera. This is called _Privacy - Camera Usage Description_ in the visual editor.
@@ -23,6 +23,24 @@ Make sure you add the needed permissions to your Android Manifest Permission.
 ```xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
+### API
+``` dart
+import 'package:album_saver/album_saver.dart';
+import 'package:image_picker/image_picker.dart';
+
+File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+// Save to ablum
+AlbumSaver.saveToAlbum(filePath: image.path, albumName: "YourAlbumName");
+
+// Create album
+// In Android, it will create a folder in DCIM folder
+AlbumSaver.createAlbum(albumName: "MyTestAlbum");
+
+// Get DCIM folder path (just work on Android)
+AlbumSaver.getDcimPath();
 ```
 
 ### Example
