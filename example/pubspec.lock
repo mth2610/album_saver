@@ -2,7 +2,7 @@
 # See https://www.dartlang.org/tools/pub/glossary#lockfile
 packages:
   album_saver:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: ".."
       relative: true
@@ -59,7 +59,7 @@ packages:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.3"
+    version: "0.5.3+1"
   matcher:
     dependency: transitive
     description:
