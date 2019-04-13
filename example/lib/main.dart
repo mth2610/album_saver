@@ -14,6 +14,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   File _image;
   String _dcimPath;
+  bool _isSaving;
 
   void _getDcimPath()async{
     _dcimPath = await AlbumSaver.getDcimPath();
@@ -28,7 +29,9 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: ListView(
+        body: _isSaving == true
+        ? Center(child: CircularProgressIndicator())
+        : ListView(
           children: <Widget>[
             _buildPickedImage(),
             _dcimPath != null
@@ -108,8 +111,20 @@ class _MyAppState extends State<MyApp> {
         color: Colors.blue,
         textColor: Colors.white,
         child: Text("Save to album"),
-        onPressed: (){
-          AlbumSaver.saveToAlbum(filePath: _image.path, albumName: "test_album_saver2");
+        onPressed: ()async{
+          setState(() {
+            _isSaving = true;
+          });
+          if(_image!=null){
+            await AlbumSaver.saveToAlbum(filePath: _image.path, albumName: "test_album_saver2");
+            setState(() {
+              _isSaving = false;
+            });
+          } else {
+            setState(() {
+              _isSaving = false;
+            });
+          }
         },
       ),
     );
@@ -122,8 +137,14 @@ class _MyAppState extends State<MyApp> {
         color: Colors.blue,
         textColor: Colors.white,
         child: Text("Create a album named MyTestAlbum"),
-        onPressed: (){
-          AlbumSaver.createAlbum(albumName: "MyTestAlbum");
+        onPressed: ()async{
+          setState(() {
+            _isSaving = true;
+          });
+          await AlbumSaver.createAlbum(albumName: "MyTestAlbum");
+          setState(() {
+            _isSaving = false;
+          });
         },
       ),
     );
@@ -136,8 +157,14 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.blue,
         textColor: Colors.white,
         child: Text("Get Dcim path"),
-        onPressed: (){
-          _getDcimPath();
+        onPressed: ()async{
+          setState(() {
+            _isSaving = true;
+          });
+          await _getDcimPath();
+          setState(() {
+            _isSaving = false;
+          });
         },
       ),
     );

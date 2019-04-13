@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 class AlbumSaver {
   static const MethodChannel _channel = const MethodChannel('album_saver');
 
-  static Future<List> saveToAlbum({String filePath, String albumName}) async {
+  static Future saveToAlbum({String filePath, String albumName}) async {
     return await _channel.invokeMethod('saveToAlbum',
       {
         'filePath': filePath,

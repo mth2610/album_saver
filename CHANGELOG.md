@@ -1,3 +1,4 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+# 04/13/2019
+* First release
