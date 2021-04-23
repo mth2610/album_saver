@@ -5,7 +5,7 @@ author: thang mai <mth2610@gmail.com>
 homepage: https://mth2610.blogspot.com/
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
@@ -15,7 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  image_picker: ^0.5.3
+  image_picker: ^0.7.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
